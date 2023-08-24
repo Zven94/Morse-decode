@@ -5,23 +5,21 @@ class Decode
     '..' => 'I', '.---' => 'J', '-.-' => 'K', '.-..' => 'L', '--' => 'M', '-.' => 'N', '---' => 'O',
     '.--.' => 'P', '--.-' => 'Q', '.-.' => 'R', '...' => 'S', '-' => 'T', '..-' => 'U', '...-' => 'V',
     '.--' => 'W', '-..-' => 'X', '-.--' => 'Y', '--..' => 'Z'
-  }  
+  }.freeze
   def decode_char(char)
-    if Decode_letter_hash.key?(char)
-      puts Decode_letter_hash[char]
-    else
-      puts 'Character not found'
-    end
+    return Decode_letter_hash[char] if Decode_letter_hash.key?(char)
+
+    'Character not found'
   end
 
-
+  def decode_word(word)
+    sentence = word.split
+    sentence2 = sentence.map { |char| decode_char(char) }
+    sentence3 = sentence2.join
+    puts sentence3
+  end
 end
 
-test = Decode.new()
-test.decode_char('.-')
-
-
-
-
-
-# decode_word("-- -.--")
+test = Decode.new
+puts test.decode_char('.-')
+test.decode_word('-- -.--')
