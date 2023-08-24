@@ -14,23 +14,11 @@ class Decode
     end
   end
 
-  # method to translate one word from morse
 
-  def decode_word(word)
-    full_word = []
-    my_word = word.split(/ /)
-    puts my_word
-    my_word.each do |w|
-      full_word.push(decode_char(w)) 
-    end
-    decoded_word = full_word.join('\n')
-    puts decoded_word
-  end
 end
 
 test = Decode.new()
 test.decode_char('.-')
-test.decode_word('.--- .---')
 
 
 
